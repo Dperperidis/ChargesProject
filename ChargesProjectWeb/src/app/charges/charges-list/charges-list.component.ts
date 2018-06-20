@@ -9,9 +9,7 @@ import { Charge } from '../../app.model';
   styleUrls: ['./charges-list.component.css']
 })
 export class ChargesListComponent implements OnInit {
-  Charges = new Array<Charge>();
-
-
+  charges = new Array<Charge>();
 
   constructor(
     private chargesService: ChargesService
@@ -24,13 +22,15 @@ export class ChargesListComponent implements OnInit {
 
   getCharges() {
     this.chargesService.getCharges().subscribe(res => {
-      this.Charges = res;
+      this.charges = res;
     });
   }
 
-  delete() {
-    this.chargesService.deleteCharge().subscribe(res => {
-      console.log(res);
+  delete(id: string) {
+    const i = this.charges.findIndex(x => x.id === id);
+    this.chargesService.deleteCharge(id).subscribe(res => {
+      window.alert(res);
+      this.charges.splice(i, 1);
     });
   }
 

@@ -10,15 +10,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of Charges;let i = index">
+    <tr *ngFor="let c of charges;let i = index">
       <td>{{i + 1}}</td>
       <td>{{c.phoneBill}}</td>
       <td>{{c.gas}}</td>
       <td>{{c.rent}}</td>
       <td>{{c.food}}</td>
       <td>{{c.loansInstall}}</td>
-      <a (click)="delete();" class="delete is-medium" [routerLink]="['/charge','delete']"></a>
+      <a (click)="delete(c.id)" class="button is-small is-danger is-rounded">
+        <i class="fa fa-times"> </i>
+      </a>
     </tr>
   </tbody>
 </table>
-

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable} from 'rxjs/observable';
+import { Observable } from 'rxjs/observable';
 
 import { environment } from '../../environments/environment';
 import { Charge } from '../app.model';
@@ -16,7 +16,7 @@ export class ChargesService {
     private http: HttpClient
   ) { }
 
-  insertCharge (charge: Charge): Observable<Charge> {
+  insertCharge(charge: Charge): Observable<Charge> {
     return this.http.post<Charge>(`${this.chargeUrl}/new`, charge);
   }
 
@@ -25,7 +25,7 @@ export class ChargesService {
 
   }
 
-  deleteCharge(): Observable<Charge> {
-    return this.http.post<Charge>(`${this.chargeUrl}/delete`, [Array] );
+  deleteCharge(id: string): Observable<Charge> {
+    return this.http.post<Charge>(`${this.chargeUrl}/delete/${id}`, {});
   }
 }

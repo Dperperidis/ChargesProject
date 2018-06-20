@@ -60,16 +60,18 @@ namespace ChargesProject.Controllers
 
 
         
-        [Route("delete")]
+        [Route("delete/{id}")]
         [HttpDelete]
-        public IActionResult Delete([FromBody]Charges charges)
+        public IActionResult Delete(string id)
         {
 
             try
             {
+                var original = _ctx.Charges.Find(id);
+                var result = _ctx.Charges.Remove(original);
 
-                var result = _ctx.Charges.Remove(charges);
                 _ctx.SaveChanges();
+
                 return Ok("Σβηστηκε!");
 
             }
