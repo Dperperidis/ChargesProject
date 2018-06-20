@@ -13,29 +13,34 @@ namespace ChargesProject.Controllers
     {
 
         private SqlContext _ctx;
+
         public ChargeController(SqlContext ctx)
         {
             _ctx = ctx;
         }
 
-        [Route("insert")]
+        [Route("new")]
         [HttpPost]
         public IActionResult Post([FromBody]Charges charges)
         {
+
             try
             {
-                
+
                 var result = _ctx.Charges.Add(charges);
                 _ctx.SaveChanges();
                 return Ok(result.Entity);
+
             }
             catch (Exception ex)
             {
                 return BadRequest("Κάτι πήγε στραβά");
             }
+
+
         }
 
-        [Route("all")]
+        [Route("details")]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -50,6 +55,30 @@ namespace ChargesProject.Controllers
             {
                 return BadRequest("Κάτι πήγε στραβά");
             }
+        }
+
+
+
+        
+        [Route("delete")]
+        [HttpDelete]
+        public IActionResult Delete([FromBody]Charges charges)
+        {
+
+            try
+            {
+
+                var result = _ctx.Charges.Remove(charges);
+                _ctx.SaveChanges();
+                return Ok("Σβηστηκε!");
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Κάτι πήγε στραβά");
+            }
+
+
         }
     }
 }

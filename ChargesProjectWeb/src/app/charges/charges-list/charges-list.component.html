@@ -1,3 +1,24 @@
-<p>
-  charges-list works!
-</p>
+<table class="table is-fullwidth is-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Κινητό/Τηλέφωνο</th>
+      <th>Βενζίνη</th>
+      <th>Ενοίκιο</th>
+      <th>Φαγητό</th>
+      <th>Δόσεις</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of Charges;let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{c.phoneBill}}</td>
+      <td>{{c.gas}}</td>
+      <td>{{c.rent}}</td>
+      <td>{{c.food}}</td>
+      <td>{{c.loansInstall}}</td>
+      <a (click)="delete();" class="delete is-medium" [routerLink]="['/charge','delete']"></a>
+    </tr>
+  </tbody>
+</table>
+

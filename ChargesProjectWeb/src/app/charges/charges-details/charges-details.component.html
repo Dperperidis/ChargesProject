@@ -1,37 +1,33 @@
-<div class="field">
-  <label class="label">Ρεύμα</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="€">
+
+  <div class="field">
+    <label class="label">Τηλέφωνο/Κινητό</label>
+    <div class="control">
+      <input class="input" [(ngModel)]="charge.phoneBill" type="text" placeholder="€">
+    </div>
   </div>
-</div>
-<div class="field">
-  <label class="label">Τηλέφωνο</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="€">
+  <div class="field">
+    <label class="label">Βενζίνη</label>
+    <div class="control">
+      <input class="input" type="text" [(ngModel)]="charge.gas" placeholder="€">
+    </div>
   </div>
-</div>
-<div class="field">
-  <label class="label">Κινητό</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="€">
+  <div class="field">
+    <label class="label">Ενοίκιο</label>
+    <div class="control">
+      <input class="input" type="text" [(ngModel)]="charge.rent" placeholder="€">
+    </div>
   </div>
-</div>
-<div class="field">
-  <label class="label">Ενοίκιο</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="€">
+  <div class="field">
+    <label class="label">Δόση Συσκευών</label>
+    <div class="control">
+      <input class="input" type="text" [(ngModel)]="charge.loansInstall" placeholder="€">
+    </div>
   </div>
-</div>
-<div class="field">
-  <label class="label">Δόση Συσκευών</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="€">
+  <div class="field">
+    <label class="label">Φαγητό</label>
+    <div class="control">
+      <input class="input" type="text" [(ngModel)]="charge.food" placeholder="€">
+    </div>
   </div>
-</div>
-<div class="field">
-  <label class="label">Κοινόχρηστα</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="€">
-  </div>
-</div>
-<a (click)="insert()" class="button is-link">Primary</a>
+
+<a (click)="insert();" class="button is-link">Πρόσθεση</a>

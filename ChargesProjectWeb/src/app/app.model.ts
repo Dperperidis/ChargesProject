@@ -1,9 +1,9 @@
 export class Charge {
-    electricPower: string;
-    phoneNum: string;
-    cellNum: string;
+    id: string;
     rent: string;
-    sumPaid: string;
-    maintenanceFee: string;
+    gas: string;
+    phoneBill: string;
+    loansInstall: string;
+    food: string;
 
 }

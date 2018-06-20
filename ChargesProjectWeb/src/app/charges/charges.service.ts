@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// tslint:disable-next-line:import-blacklist
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { Observable} from 'rxjs/observable';
 
 import { environment } from '../../environments/environment';
 import { Charge } from '../app.model';
@@ -11,7 +9,7 @@ import { Charge } from '../app.model';
 
 export class ChargesService {
 
-  private chargeUrl = environment.api + '/charge';
+  private chargeUrl = environment.api + 'charge';
 
 
   constructor(
@@ -19,11 +17,15 @@ export class ChargesService {
   ) { }
 
   insertCharge (charge: Charge): Observable<Charge> {
-    return this.http.post<Charge>(`${this.chargeUrl}`, charge);
+    return this.http.post<Charge>(`${this.chargeUrl}/new`, charge);
   }
 
-  getCustomers(): Observable<Array<Charge>> {
-    return this.http.get<Array<Charge>>(`${this.chargeUrl}/all`);
+  getCharges(): Observable<Array<Charge>> {
+    return this.http.get<Array<Charge>>(`${this.chargeUrl}/details`);
 
+  }
+
+  deleteCharge(): Observable<Charge> {
+    return this.http.post<Charge>(`${this.chargeUrl}/delete`, [Array] );
   }
 }
