@@ -13,7 +13,9 @@ namespace ChargesProject.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
+                    Food = table.Column<string>(nullable: true),
                     Gas = table.Column<string>(nullable: true),
+                    LoansInstall = table.Column<string>(nullable: true),
                     PhoneBill = table.Column<string>(nullable: true),
                     Rent = table.Column<string>(nullable: true)
                 },

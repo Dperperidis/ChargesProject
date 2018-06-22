@@ -7,9 +7,9 @@ import { ChargesListComponent } from './charges-list/charges-list.component';
 import { ChargesService } from './charges.service';
 
 const routes: Route[] = [
-  { path: 'charge/details', component: ChargesListComponent },
-  { path: 'charge/delete/:id', component: ChargesListComponent },
-  { path: 'charge/new', component: ChargesDetailsComponent },
+  { path: 'charge/list', component: ChargesListComponent },
+  { path: 'charge/:id', component: ChargesDetailsComponent },
+  { path: 'charge/new', component: ChargesDetailsComponent }
 ];
 
 

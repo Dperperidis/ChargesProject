@@ -26,8 +26,25 @@ namespace ChargesProject.Controllers
 
             try
             {
-
                 var result = _ctx.Charges.Add(charges);
+                _ctx.SaveChanges();
+                return Ok(result.Entity);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Κάτι πήγε στραβά");
+            }
+        }
+
+        [Route("update")]
+        [HttpPost]
+        public IActionResult Update([FromBody]Charges charges)
+        {
+
+            try
+            {
+                var result = _ctx.Charges.Update(charges);
                 _ctx.SaveChanges();
                 return Ok(result.Entity);
 
@@ -58,10 +75,28 @@ namespace ChargesProject.Controllers
         }
 
 
+        [Route("{id}")]
+        [HttpGet]
+        public IActionResult GetChargeById(string id)
+        {
+            try
+            {
 
-        
+                var result = _ctx.Charges.Find(id);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Κάτι πήγε στραβά");
+            }
+        }
+
+
+
+
         [Route("delete/{id}")]
-        [HttpDelete]
+        [HttpPost]
         public IActionResult Delete(string id)
         {
 
@@ -72,7 +107,7 @@ namespace ChargesProject.Controllers
 
                 _ctx.SaveChanges();
 
-                return Ok("Σβηστηκε!");
+                return Ok(true);
 
             }
             catch (Exception ex)

@@ -10,8 +10,8 @@ using System;
 namespace ChargesProject.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20180616125153_Charges1")]
-    partial class Charges1
+    [Migration("20180622122933_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,6 +24,8 @@ namespace ChargesProject.Migrations
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Food");
 
                     b.Property<string>("Gas");
 

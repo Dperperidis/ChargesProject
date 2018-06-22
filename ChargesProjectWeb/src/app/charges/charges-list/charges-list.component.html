@@ -7,6 +7,7 @@
       <th>Ενοίκιο</th>
       <th>Φαγητό</th>
       <th>Δόσεις</th>
+      <th>Ενέργειες</th>
     </tr>
   </thead>
   <tbody>
@@ -17,9 +18,14 @@
       <td>{{c.rent}}</td>
       <td>{{c.food}}</td>
       <td>{{c.loansInstall}}</td>
-      <a (click)="delete(c.id)" class="button is-small is-danger is-rounded">
-        <i class="fa fa-times"> </i>
-      </a>
+      <td>
+        <a (click)="delete(c.id)" class="button is-small is-danger">
+          <i class="fa fa-times"> </i>
+        </a>
+        <a [routerLink]="['/charge',c.id]" class="button is-small is-warning">
+          <i class="fa fa-edit"> </i>
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>

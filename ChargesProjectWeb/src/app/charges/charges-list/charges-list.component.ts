@@ -29,8 +29,11 @@ export class ChargesListComponent implements OnInit {
   delete(id: string) {
     const i = this.charges.findIndex(x => x.id === id);
     this.chargesService.deleteCharge(id).subscribe(res => {
-      window.alert(res);
-      this.charges.splice(i, 1);
+      if (res) {
+        this.charges.splice(i, 1);
+      }
+    }, error => {
+      window.alert(error.error);
     });
   }
 
